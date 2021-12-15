@@ -1,5 +1,6 @@
 package com.exam.serviceimpl;
 
+import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.exam.entity.ExamManage;
@@ -30,10 +31,6 @@ public class ExamManageServiceImpl implements ExamManageService {
     public List<ExamManage> findAll() {
         return examManageMapper.findAll();
     }
-
-
-
-
     @Override
     public IPage<ExamManage> findAll(Page<ExamManage> page) {
         return examManageMapper.findAll(page);
@@ -64,11 +61,17 @@ public class ExamManageServiceImpl implements ExamManageService {
         return examManageMapper.findOnlyPaperId();
     }
 
+    //根据题库名称返回对应的选择题，判断题，填空题数量
     @Override
     public SubjectSumVo findSumBySubject(String subject) {
         int fillNum=fillQuestionService.getSumBySubject(subject);
         int judgeNum=judgeQuestionService.getSumBySubject(subject);
         int multiNum=multiQuestionService.getSumBySubject(subject);
         return new SubjectSumVo(fillNum,judgeNum,multiNum);
+    }
+
+    @Override
+    public JSONArray getAllTopics() {
+        return null;
     }
 }
