@@ -19,6 +19,8 @@ public class AdminController {
     @GetMapping("/admins")
     public ApiResult findAll(){
         System.out.println("查询全部");
+
+        System.out.println();
         return ApiResultHandler.success(adminService.findAll());
     }
 
