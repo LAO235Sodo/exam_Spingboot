@@ -21,6 +21,7 @@ public class AdminController {
         System.out.println("查询全部");
 
         System.out.println();
+        System.out.println();
         return ApiResultHandler.success(adminService.findAll());
     }
 
