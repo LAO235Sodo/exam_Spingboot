@@ -20,7 +20,8 @@ public class AdminController {
     public ApiResult findAll(){
         System.out.println("查询全部");
 
-        System.out.println();
+        System.out.println(11111111);
+
         return ApiResultHandler.success(adminService.findAll());
     }
 
